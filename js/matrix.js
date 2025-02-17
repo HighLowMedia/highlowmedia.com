@@ -1,6 +1,26 @@
 var Matrix = function() {
 
+    async function _getRandomWikimediaImage() {
+        const url = `https://commons.wikimedia.org/w/api.php?action=query&generator=random&grnnamespace=6&grntype=file&prop=imageinfo&iiprop=url&format=json&origin=*`;
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+          const pages = data.query.pages;
+          const imageId = Object.keys(pages)[0];
+          const imageUrl = pages[imageId].imageinfo[0].url;
+          return imageUrl;
+        } catch (error) {
+          console.error("Error fetching image:", error);
+          return null;
+        }
+    }
+
     var _openSelection = function(color) {
+        _getRandomWikimediaImage().then(imageUrl => {
+            if (imageUrl) {
+                $('#container-selection > div').append('<img src="'+imageUrl+'" alt="This is a random image form the Wikimedia Creative Commons API." border="0" />');
+            }
+        });
         $('#container-selection > div').css('background-color', color);
         $('#container-selection').css('z-index', '2');
         $('#container-selection > div').addClass('show');
@@ -8,7 +28,8 @@ var Matrix = function() {
 
     var _closeSelection = function(color) {
         $('#container-selection > div').removeClass('show');
-        $('#container-selection').css('z-index', '0');  
+        $('#container-selection').css('z-index', '0');
+        $('#container-selection > div img').remove();
     }
 
     var _getRandomHexColor = function() {

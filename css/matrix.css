@@ -63,12 +63,33 @@ body {
     margin-bottom: 5vh;
     margin-right: 5vw;
     opacity: 0;
+    overflow: hidden;
 }
 #container-selection > div.show {
     animation: selection-show 1.6s ease-in forwards;
 }
+
+#container-selection > div > img {
+    opacity: 0;
+    animation: selection-show 3s ease-in 2s 1 forwards;
+}
+@media screen and (orientation: portrait) {
+    #container-selection > div > img {
+        width: auto;
+        height: 100%;
+    }
+}
+@media screen and (orientation: landscape) {
+    #container-selection > div > img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
 #container-selection > div > button {
     position: absolute;
+    z-index: 1;
     top: 5vh;
     right: 5vw;
     margin-top: 2vh;
