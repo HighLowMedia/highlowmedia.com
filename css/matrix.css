@@ -70,24 +70,46 @@ body {
 }
 
 #container-selection > div > img {
+    margin-top: -60vh;
+    margin-left: -40vh;
     opacity: 0;
     animation: selection-show 3s ease-in 2s 1 forwards;
 }
 @media screen and (orientation: portrait) {
     #container-selection > div > img {
         width: auto;
-        height: 100%;
+        height: 200%;
     }
 }
 @media screen and (orientation: landscape) {
     #container-selection > div > img {
-        width: 100%;
+        width: 200%;
         height: auto;
     }
 }
 
+#container-selection > div > #btnAudio {
+    position: absolute;
+    z-index: 1;
+    top: 5vh;
+    left: 5vw;
+    margin-top: 2vh;
+    margin-left: 2vh;
+    width: 5vh;
+    height: 5vh;
+    background-color: #fff;
+    background-image: url("/images/audio-no-96x96.png");
+    background-size: 3vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 1vh;
+}
+#container-selection > div > #btnAudio:hover {
+    cursor: pointer;
+    opacity: .6;
+}
 
-#container-selection > div > button {
+#container-selection > div > #btnClose {
     position: absolute;
     z-index: 1;
     top: 5vh;
@@ -95,12 +117,13 @@ body {
     margin-top: 2vh;
     margin-right: 2vh;
     padding: 1vh 2vh;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     font-size: 1em;
-    border: none
+    font-weight: bold;
+    border-radius: 1vh;
 }
-#container-selection > div > button:hover {
+#container-selection > div > #btnClose:hover {
     cursor: pointer;
     opacity: .6;
 }
