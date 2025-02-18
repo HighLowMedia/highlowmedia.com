@@ -1,12 +1,21 @@
 var Matrix = function() {
 
     let _audioActive = false;
-    let _audioPlaying = false;
+    //let _audioPlaying = false;
     let _audioMuted = false;
 
     let _audioCtx;
-    let _oscillator;
-    let _gainNode;
+    let note1;
+    let note2;
+    let note3;
+    let gainNode1;
+    let gainNode2;
+    let gainNode3;
+    //let _oscillator;
+    //let _gainNode;
+
+    let audioTimeout1;
+    let audioTimeout2;
 
     async function _getRandomWikimediaImage() {
         const url = `https://commons.wikimedia.org/w/api.php?action=query&generator=random&grnnamespace=6&grntype=file&prop=imageinfo&iiprop=url&format=json&origin=*`;
@@ -81,7 +90,7 @@ var Matrix = function() {
             _audioStop();
         });
         let i = 0;
-        while (i < 400) {
+        while (i < 300) {
             const randomInt = _getRandomIntInclusive(0, 10);
             const randomColor = _getRandomHexColor();
             const markupDiv= $('<div id="matrix-square-'+i+'" style="background-color:'+randomColor+';animation-delay:'+randomInt+'s;"></div>');
@@ -100,32 +109,107 @@ var Matrix = function() {
         }
     }
 
+    var _getRandomNumberBetween = function(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        const r =  Math.floor(Math.random() * (max - min + 1)) + min;
+        return parseFloat(r.toFixed(2));
+    }
+
     var _audioInit = function() {
+
         _audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        _oscillator = _audioCtx.createOscillator();
-        _gainNode = _audioCtx.createGain();
-        _oscillator.connect(_gainNode);
-        _gainNode.connect(_audioCtx.destination);
-        _oscillator.type = 'sine';
-        _oscillator.frequency.setValueAtTime(440, _audioCtx.currentTime); // 440 Hz
-        _gainNode.gain.setValueAtTime(0.0001, _audioCtx.currentTime);
-        _gainNode.gain.exponentialRampToValueAtTime(0.5, _audioCtx.currentTime + 3.5)
-        _oscillator.start(0);
+
+        // Create oscillators for different notes
+
+        note1 = _audioCtx.createOscillator();
+        gainNode1 = _audioCtx.createGain();
+        note1.type = 'sine';
+        note1.connect(gainNode1);
+        gainNode1.connect(_audioCtx.destination);
+
+        note2 = _audioCtx.createOscillator();
+        gainNode2 = _audioCtx.createGain();
+        note2.type = 'sine';
+        note2.connect(gainNode2);
+        gainNode2.connect(_audioCtx.destination);
+
+        note3 = _audioCtx.createOscillator();
+        gainNode3 = _audioCtx.createGain();
+        note3.type = 'sine';
+        note3.connect(gainNode3);
+        gainNode3.connect(_audioCtx.destination);
+
+        note1.frequency.setValueAtTime(_getRandomNumberBetween(411,560), _audioCtx.currentTime);
+        gainNode1.gain.setValueAtTime(0.0001, _audioCtx.currentTime);
+        gainNode1.gain.exponentialRampToValueAtTime(0.5, _audioCtx.currentTime + 3.5);
+        note1.frequency.setValueAtTime(_getRandomNumberBetween(411,560), _audioCtx.currentTime + 12);
+
+        note2.frequency.setValueAtTime(_getRandomNumberBetween(251,410), _audioCtx.currentTime);
+        gainNode2.gain.setValueAtTime(0.0001, _audioCtx.currentTime);
+        gainNode2.gain.exponentialRampToValueAtTime(0.5, _audioCtx.currentTime + 3.5);
+        note2.frequency.setValueAtTime(_getRandomNumberBetween(251,410), _audioCtx.currentTime + 24);
+
+        note3.frequency.setValueAtTime(_getRandomNumberBetween(90,440), _audioCtx.currentTime);
+        gainNode3.gain.setValueAtTime(0.0001, _audioCtx.currentTime);
+        gainNode3.gain.exponentialRampToValueAtTime(0.3, _audioCtx.currentTime + 3.5);
+        note3.frequency.setValueAtTime(_getRandomNumberBetween(90,440), _audioCtx.currentTime + 36);
+
+        // Play the notes
+
+        note1.start(0);
+
+        audioTimeout1 = setTimeout(() => {
+            note2.start(0);
+        }, 5000); 
+
+        audioTimeout2 = setTimeout(() => {
+            note3.start(0);
+        }, 7500); 
+        
         _audioActive = true;
         _audioPlaying = true;
     }
     var _audioPlay = function() {
-        _gainNode.gain.setValueAtTime(0.0001, _audioCtx.currentTime);
-        _gainNode.gain.exponentialRampToValueAtTime(0.5, _audioCtx.currentTime + 1.0);
+        //_gainNode.gain.setValueAtTime(0.0001, _audioCtx.currentTime);
+        gainNode1.gain.exponentialRampToValueAtTime(0.5, _audioCtx.currentTime);
+        gainNode2.gain.exponentialRampToValueAtTime(0.5, _audioCtx.currentTime);
+        gainNode3.gain.exponentialRampToValueAtTime(0.5, _audioCtx.currentTime);
         _audioPlaying = true;
     }
     var _audioPlayFromGrid = function() {
-        _gainNode.gain.setValueAtTime(0.0001, _audioCtx.currentTime);
-        _gainNode.gain.exponentialRampToValueAtTime(0.5, _audioCtx.currentTime + 3.5);
+        
+        note1.frequency.setValueAtTime(_getRandomNumberBetween(411,560), _audioCtx.currentTime);
+        gainNode1.gain.setValueAtTime(0.0001, _audioCtx.currentTime);
+        gainNode1.gain.exponentialRampToValueAtTime(0.5, _audioCtx.currentTime + 3.5);
+        note1.frequency.setValueAtTime(_getRandomNumberBetween(411,560), _audioCtx.currentTime + 12);
+
+        audioTimeout1 = setTimeout(() => {
+            note2.frequency.setValueAtTime(_getRandomNumberBetween(251,410), _audioCtx.currentTime);
+            gainNode2.gain.setValueAtTime(0.0001, _audioCtx.currentTime);
+            gainNode2.gain.exponentialRampToValueAtTime(0.5, _audioCtx.currentTime + 3.5);
+            note2.frequency.setValueAtTime(_getRandomNumberBetween(251,410), _audioCtx.currentTime + 24);
+        }, 5000); 
+
+        audioTimeout2 = setTimeout(() => {
+            note3.frequency.setValueAtTime(_getRandomNumberBetween(90,440), _audioCtx.currentTime);
+            gainNode3.gain.setValueAtTime(0.0001, _audioCtx.currentTime);
+            gainNode3.gain.exponentialRampToValueAtTime(0.3, _audioCtx.currentTime + 3.5);
+            note3.frequency.setValueAtTime(_getRandomNumberBetween(90,440), _audioCtx.currentTime + 36);
+        }, 7500); 
+        
         _audioPlaying = true;
     }
     var _audioStop = function() {
-        _gainNode.gain.linearRampToValueAtTime(0.0, _audioCtx.currentTime + 1.0);
+        if (audioTimeout1) {
+            clearTimeout(audioTimeout1)
+        }
+        if (audioTimeout2) {
+            clearTimeout(audioTimeout2)
+        }
+        gainNode1.gain.linearRampToValueAtTime(0.0, _audioCtx.currentTime);
+        gainNode2.gain.linearRampToValueAtTime(0.0, _audioCtx.currentTime);
+        gainNode3.gain.linearRampToValueAtTime(0.0, _audioCtx.currentTime);
         _audioPlaying = false;
     }
 

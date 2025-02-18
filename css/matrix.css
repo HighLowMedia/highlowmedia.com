@@ -102,6 +102,9 @@ body {
     background-size: 3vh;
     background-position: center;
     background-repeat: no-repeat;
+    border-style: solid;
+    border-width: medium;
+    border-color: #000;
     border-radius: 1vh;
 }
 #container-selection > div > #btnAudio:hover {
@@ -121,6 +124,9 @@ body {
     color: black;
     font-size: 1em;
     font-weight: bold;
+    border-style: solid;
+    border-width: medium;
+    border-color: #000;
     border-radius: 1vh;
 }
 #container-selection > div > #btnClose:hover {
