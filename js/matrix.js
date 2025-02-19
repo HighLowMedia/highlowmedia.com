@@ -77,11 +77,11 @@ var Matrix = function() {
         $('#container-selection > div > #btnAudio').on( "click", function() {
             if (_audioMuted) {
                 _audioPlay();
-                $('#container-selection > div > #btnAudio').css('background-image','url("/images/audio-96x96.png")');
+                $('#container-selection > div > #btnAudio').css('background-image','url("/images/audio-110x110.png")');
                 _audioMuted = false;
             } else {
                 _audioStop();
-                $('#container-selection > div > #btnAudio').css('background-image','url("/images/audio-no-96x96.png")');
+                $('#container-selection > div > #btnAudio').css('background-image','url("/images/audio-no-110x110.png")');
                 _audioMuted = true;
             }
         });
@@ -89,8 +89,9 @@ var Matrix = function() {
             _closeSelection();
             _audioStop();
         });
+        
         let i = 0;
-        while (i < 300) {
+        while (i < 400) {
             const randomInt = _getRandomIntInclusive(0, 10);
             const randomColor = _getRandomHexColor();
             const markupDiv= $('<div id="matrix-square-'+i+'" style="background-color:'+randomColor+';animation-delay:'+randomInt+'s;"></div>');
@@ -100,7 +101,7 @@ var Matrix = function() {
                 if (!_audioActive) {
                     _audioInit();
                     _audioActive = true;
-                    $('#container-selection > div > #btnAudio').css('background-image','url("/images/audio-96x96.png")');
+                    $('#container-selection > div > #btnAudio').css('background-image','url("/images/audio-110x110.png")');
                 } else if (!_audioMuted) {
                     _audioPlayFromGrid();
                 }
