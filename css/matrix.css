@@ -74,6 +74,7 @@ body {
 }
 
 #container-selection > div > #image-container {
+    cursor: none;
     height: 100%;
     zoom: 200%;
     background-position: center;
@@ -86,7 +87,7 @@ body {
 
 #container-selection > div > #btnAudio {
     position: absolute;
-    z-index: 1;
+    z-index: 10;
     background-color: #fff;
     background-image: url("/images/audio-no-110x110.png");
     background-size: cover;
@@ -122,7 +123,7 @@ body {
 
 #container-selection > div > #btnClose {
     position: absolute;
-    z-index: 1;
+    z-index: 10;
     background-color: white;
     color: black;
     font-weight: bold;
@@ -156,9 +157,39 @@ body {
     opacity: .6;
 }
 
+:root {
+    --rotation: 0deg;
+}
+#container-selection > div > #dream-word {
+    cursor: none;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(var(--rotation));
+    color: white;
+    font-weight: bold;
+    font-size: 0;
+    text-align: center;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    animation: dream-word-show-grow 48s ease-in 12s 1 forwards;
+}
+
 @keyframes selection-show {
     0% {
-      opacity: 0; }
+        opacity: 0; }
     100% {
-      opacity: 1; }
+        opacity: 1; }
+}
+
+@keyframes dream-word-show-grow {
+    0% {
+        opacity: 0;
+        font-size: 0; }
+    98% {
+        opacity: 0.8;
+        font-size: calc(1em + 160vw); }
+    100% {
+        opacity: 0;
+        font-size: calc(1em + 160vw); }
 }
