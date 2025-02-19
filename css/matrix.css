@@ -75,11 +75,13 @@ body {
 
 #container-selection > div > #image-container {
     height: 100%;
-    background-size: cover;
+    zoom: 200%;
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0;
-    animation: selection-show 3s ease-in 2s 1 forwards;
+}
+#container-selection > div > #image-container.show {
+    animation: selection-show 3s ease-in 3s 1 forwards;
 }
 
 #container-selection > div > #btnAudio {

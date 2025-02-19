@@ -55,12 +55,13 @@ var Matrix = function() {
         $('#container-selection > div').css('background-color', color);
         $('#container-selection').css('z-index', '2');
         $('#container-selection > div').addClass('show');
+        $('#container-selection > div > div#image-container').addClass('show');
     }
 
     var _closeSelection = function(color) {
         $('#container-selection > div').removeClass('show');
+        $('#container-selection > div > div#image-container').removeClass('show');
         $('#container-selection').css('z-index', '0');
-        //$('#container-selection > div img').remove();
     }
 
     var _getRandomHexColor = function() {
