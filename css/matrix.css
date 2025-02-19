@@ -73,23 +73,13 @@ body {
     animation: selection-show 1.6s ease-in forwards;
 }
 
-#container-selection > div > img {
-    margin-top: -60vh;
-    margin-left: -40vh;
+#container-selection > div > #image-container {
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     opacity: 0;
     animation: selection-show 3s ease-in 2s 1 forwards;
-}
-@media screen and (orientation: portrait) {
-    #container-selection > div > img {
-        width: auto;
-        height: 200%;
-    }
-}
-@media screen and (orientation: landscape) {
-    #container-selection > div > img {
-        width: 200%;
-        height: auto;
-    }
 }
 
 #container-selection > div > #btnAudio {

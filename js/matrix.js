@@ -44,12 +44,12 @@ var Matrix = function() {
         _getRandomWikimediaImage().then(imageUrl => {
             if (imageUrl) {
                 if (_isPngOrJpg(imageUrl)) {
-                    $('#container-selection > div').append('<img src="'+imageUrl+'" alt="This is a random image form the Wikimedia Creative Commons API." border="0" />');
+                    $('#container-selection > div >div#image-container').css('background-image','url("'+imageUrl+'")');
                 } else {
-                    $('#container-selection > div').append('<img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/%E5%A4%9C%E5%8F%89%E9%AC%BC.JPG" alt="​夜叉鬼" border="0" />');
+                    $('#container-selection > div > div#image-container').css('background-image','url("https://upload.wikimedia.org/wikipedia/commons/b/b9/%E5%A4%9C%E5%8F%89%E9%AC%BC.JPG")');
                 }   
             } else {
-                $('#container-selection > div').append('<img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/%E5%A4%9C%E5%8F%89%E9%AC%BC.JPG" alt="​夜叉鬼" border="0" />');
+                $('#container-selection > div > div#image-container').css('background-image','url("https://upload.wikimedia.org/wikipedia/commons/b/b9/%E5%A4%9C%E5%8F%89%E9%AC%BC.JPG")');
             }
         });
         $('#container-selection > div').css('background-color', color);
@@ -60,7 +60,7 @@ var Matrix = function() {
     var _closeSelection = function(color) {
         $('#container-selection > div').removeClass('show');
         $('#container-selection').css('z-index', '0');
-        $('#container-selection > div img').remove();
+        //$('#container-selection > div img').remove();
     }
 
     var _getRandomHexColor = function() {
