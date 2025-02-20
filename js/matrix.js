@@ -65,8 +65,6 @@ var Matrix = function() {
         "infinity", "maze", "web", "chain", "void"
     ];
 
-    console.log(_dreamWords.length);
-
     let _selectionOpen = false;
 
     let _audioActive = false;

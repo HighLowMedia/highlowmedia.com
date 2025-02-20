@@ -168,7 +168,6 @@ body {
 #container-selection > div > .dream-word {
     cursor: none;
     position: absolute;
-    z-index: 1;
     top: 50%;
     left: 50%;
     font-weight: bold;
@@ -177,16 +176,19 @@ body {
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 #container-selection > div > #dream-word-1 {
+    z-index: 4;
     color: var(--color-word-1);
     transform: translate(-50%, -50%) rotate(var(--rotation-word-1));
     animation: 60s ease-in 4s 1 forwards dream-word-show-grow-1;
 }
 #container-selection > div > #dream-word-2 {
+    z-index: 3;
     color: var(--color-word-2);
     transform: translate(-50%, -50%) rotate(var(--rotation-word-2));
     animation: 60s ease-in 30s 1 forwards dream-word-show-grow-2;
 }
 #container-selection > div > #dream-word-3 {
+    z-index: 2;
     color: var(--color-word-2);
     transform: translate(-50%, -50%) rotate(var(--rotation-word-3));
     animation: 60s ease-in 60s 1 forwards dream-word-show-grow-3;
