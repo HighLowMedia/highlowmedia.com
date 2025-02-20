@@ -132,12 +132,13 @@ var Matrix = function() {
         $('#container-selection > div').addClass('show');
         $('#container-selection > div > div#image-container').addClass('show');
 
-        const r1 = _getRandomIntInclusive(-359, 359);
-        const r2 = _getRandomIntInclusive(-359, 359);
-        const r3 = _getRandomIntInclusive(-359, 359);
-        $('#container-selection > div').append('<div class="dream-word" id="dream-word-1" style="--rotation-word-1: '+r1+'deg; --color-word-1: '+_getRandomHexColor()+';">'+_dreamWords[Math.floor(Math.random() * _dreamWords.length)]+'</div>');
-        $('#container-selection > div').append('<div class="dream-word" id="dream-word-2" style="--rotation-word-2: '+r2+'deg; --color-word-2: '+_getRandomHexColor()+';">'+_dreamWords[Math.floor(Math.random() * _dreamWords.length)]+'</div>');
-        $('#container-selection > div').append('<div class="dream-word" id="dream-word-3" style="--rotation-word-3: '+r3+'deg; --color-word-3: '+_getRandomHexColor()+';">'+_dreamWords[Math.floor(Math.random() * _dreamWords.length)]+'</div>');
+        $('#container-selection > div').append('<div class="dream-word-container" id="dream-word-container-1"></div>');
+        $('#container-selection > div').append('<div class="dream-word-container" id="dream-word-container-2"></div>');
+        $('#container-selection > div').append('<div class="dream-word-container" id="dream-word-container-3"></div>');
+
+        $('#container-selection > div > #dream-word-container-1').append('<div class="dream-word" id="dream-word-1" style="--color-word-1: '+_getRandomHexColor()+';">'+_dreamWords[Math.floor(Math.random() * _dreamWords.length)]+'</div>');
+        $('#container-selection > div > #dream-word-container-2').append('<div class="dream-word" id="dream-word-2" style="--color-word-2: '+_getRandomHexColor()+';">'+_dreamWords[Math.floor(Math.random() * _dreamWords.length)]+'</div>');
+        $('#container-selection > div > #dream-word-container-3').append('<div class="dream-word" id="dream-word-3" style="--color-word-3: '+_getRandomHexColor()+';">'+_dreamWords[Math.floor(Math.random() * _dreamWords.length)]+'</div>');
     }
 
     var _closeSelection = function(color) {
@@ -146,9 +147,9 @@ var Matrix = function() {
         $('#container-selection > div > div#image-container').removeClass('show');
         $('#container-selection').css('z-index', '0');
 
-        $("#dream-word-1").remove();
-        $("#dream-word-2").remove();
-        $("#dream-word-3").remove();
+        $("#dream-word-container-1").remove();
+        $("#dream-word-container-2").remove();
+        $("#dream-word-container-3").remove();
     }
 
     var _getRandomIntInclusive = function(min, max) {

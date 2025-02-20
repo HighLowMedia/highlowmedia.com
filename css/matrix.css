@@ -158,42 +158,64 @@ body {
 }
 
 :root {
-    --rotation-word-1: 0deg;
     --color-word-1: white;
-    --rotation-word-2: 0deg;
     --color-word-2: white;
-    --rotation-word-3: 0deg;
     --color-word-3: white;
 }
-#container-selection > div > .dream-word {
+#container-selection > div > .dream-word-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flexbox;
+    justify-content: center;
+}
+#container-selection > div > #dream-word-container-1 {
+    animation:
+       dream-word-rotate-right 70s linear 10s 1 forwards;
+}
+#container-selection > div > #dream-word-container-2 {
+    animation:
+       dream-word-rotate-left 70s linear 20s 1 forwards;
+}
+
+#container-selection > div > .dream-word-container > .dream-word {
     cursor: none;
+    opacity: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     font-weight: bold;
     font-size: 0;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 100%; 
+    display: flex;
+    align-items: center;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
-#container-selection > div > #dream-word-1 {
+#container-selection > div > .dream-word-container > #dream-word-1 {
     z-index: 4;
     color: var(--color-word-1);
-    transform: translate(-50%, -50%) rotate(var(--rotation-word-1));
-    animation: 45s linear 6s 1 forwards dream-word-show-grow-1;
+    transform: translate(-50%, -50%);
+    animation:
+        dream-word-show 45s ease-in 5s 1 forwards,
+        dream-word-grow 45s ease-in 5s 1 forwards
 }
-#container-selection > div > #dream-word-2 {
+#container-selection > div > .dream-word-container > #dream-word-2 {
     z-index: 3;
     color: var(--color-word-2);
-    transform: translate(-50%, -50%) rotate(var(--rotation-word-2));
-    animation: 36s linear 20s 1 forwards dream-word-show-grow-2;
+    transform: translate(-50%, -50%);
+    animation:
+        dream-word-show 40s ease-in 15s 1 forwards,
+        dream-word-grow 40s ease-in 15s 1 forwards
 }
-#container-selection > div > #dream-word-3 {
+#container-selection > div > .dream-word-container > #dream-word-3 {
     z-index: 2;
     color: var(--color-word-2);
-    transform: translate(-50%, -50%) rotate(var(--rotation-word-3));
-    animation: 30s linear 34s 1 forwards dream-word-show-grow-3;
+    transform: translate(-50%, -50%);
+    animation:
+        dream-word-show 35s ease-in 25s 1 forwards,
+        dream-word-grow 35s ease-in 25s 1 forwards
 }
 
 @keyframes selection-show {
@@ -203,69 +225,40 @@ body {
         opacity: 1; }
 }
 
-@keyframes dream-word-show-grow-1 {
+
+@keyframes dream-word-show {
     0% {
-        opacity: 0;
-        font-size: 0;
-        transform: translate(-50%, -50%) rotate(var(--rotation-word-1));
-    }
-    20% {
         opacity: 0.2;
-        font-size: 10em;
-        transform: translate(-50%, -50%) rotate(var(--rotation-word-1));
     }
-    95% {
-        opacity: 0.7;
-        font-size: 150em;
-        transform: translate(-50%, -50%) rotate(calc(var(--rotation-word-1) * 4));
+    80% {
+        opacity: 0.8;
     }
     100% {
         opacity: 0;
-        font-size: 160em;
-        transform: translate(-50%, -50%) rotate(calc(var(--rotation-word-1) * 4.5));
     }
 }
-@keyframes dream-word-show-grow-2 {
+@keyframes dream-word-grow {
     0% {
-        opacity: 0;
         font-size: 0;
-        transform: translate(-50%, -50%) rotate(var(--rotation-word-2));
-    }
-    20% {
-        opacity: 0.4;
-        font-size: 10em;
-        transform: translate(-50%, -50%) rotate(var(--rotation-word-2));
-    }
-    95% {
-        opacity: 0.7;
-        font-size: 150em;
-        transform: translate(-50%, -50%) rotate(calc(var(--rotation-word-2) * 4));
     }
     100% {
-        opacity: 0;
-        font-size: 160em;
-        transform: translate(-50%, -50%) rotate(calc(var(--rotation-word-2) * 4.5));
+        font-size: 180em;
     }
 }
-@keyframes dream-word-show-grow-3 {
+
+@keyframes dream-word-rotate-right {
     0% {
-        opacity: 0;
-        font-size: 0;
-        transform: translate(-50%, -50%) rotate(var(--rotation-word-3));
-    }
-    20% {
-        opacity: 0.2;
-        font-size: 10em;
-        transform: translate(-50%, -50%) rotate(var(--rotation-word-3));
-    }
-    95% {
-        opacity: 0.7;
-        font-size: 150em;
-        transform: translate(-50%, -50%) rotate(calc(var(--rotation-word-3) * 4));
+        transform: rotate(0deg);
     }
     100% {
-        opacity: 0;
-        font-size: 160em;
-        transform: translate(-50%, -50%) rotate(calc(var(--rotation-word-3) * 4.5));
+        transform: rotate(180deg);
+    }
+}
+@keyframes dream-word-rotate-left {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-180deg);
     }
 }
