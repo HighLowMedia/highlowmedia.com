@@ -29,6 +29,8 @@ var Matrix = function() {
         "witch", "wizard", "warrior", "king", "queen", "princess", "prince", "giant", "dwarf", "mermaid",
         "vampire", "zombie", "alien", "robot", "clown", "athlete", "musician", "artist", "dancer", "actor",
         "pilot", "sailor", "farmer", "chef", "nurse", "scientist", "politician", "beggar", "hero", "villain",
+        "trump", "elon", "putin", "hitler", "satan", "god", "jesus", "buddha", "mohammed", "zeus", "mary", "lilith",
+        "stalin", "genghis", "caesar", "tesla", "oswald", "einstein", "lincoln", "booth", "bob", 
         // Objects & Items (231-300)
         "key", "lock", "phone", "computer", "book", "letter", "mirror", "clock", "camera", "television",
         "radio", "lamp", "candle", "knife", "sword", "gun", "shield", "crown", "ring", "necklace",
@@ -38,11 +40,13 @@ var Matrix = function() {
         "bed", "pillow", "blanket", "flag", "cross", "crystal-ball", "wand", "staff", "torch", "treasure",
         "gold", "silver", "diamond", "pearl", "paper", "pen", "brush", "drum", "bell", "whistle",
         // Actions & States (301-350)
-        "flying", "falling", "running", "swimming", "climbing", "dancing", "walking", "jumping", "crawling", "floating",
-        "fighting", "kissing", "hugging", "crying", "laughing", "singing", "talking", "shouting", "whispering", "sleeping",
+        "flying", "falling", "running", "swimming", "climbing", "dance", "walking", "jump", "crawl", "floating",
+        "fight", "kiss", "hugging", "crying", "laughing", "singing", "talking", "shouting", "whisper", "sleeping",
         "waking", "eating", "drinking", "breathing", "bleeding", "healing", "dying", "burning", "freezing", "melting",
-        "growing", "shrinking", "transforming", "hiding", "seeking", "chasing", "escaping", "winning", "losing", "celebrating",
-        "working", "playing", "building", "destroying", "painting", "writing", "reading", "teaching", "learning", "creating",
+        "growing", "shrinking", "transforming", "hiding", "seeking", "chase", "escaping", "winning", "losing", "celebrating",
+        "working", "playing", "building", "destroy", "painting", "writing", "reading", "teaching", "learn", "creating",
+        "fuck", "kill", "hate", "scream", "caress", "suck", "tongue", "bite", "lick", "climax", "orgasm", "come", "ejaculate",
+        "oppress", "resist", "surrender", "betray", "forgive", "forget", "remember",
         // Emotions & Sensations (351-400)
         "joy", "sadness", "anger", "fear", "love", "hate", "hope", "despair", "peace", "anxiety",
         "excitement", "boredom", "pleasure", "pain", "warmth", "cold", "hunger", "thirst", "fatigue", "energy",

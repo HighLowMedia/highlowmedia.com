@@ -211,7 +211,7 @@ body {
 }
 #container-selection > div > .dream-word-container > #dream-word-3 {
     z-index: 2;
-    color: var(--color-word-2);
+    color: var(--color-word-3);
     transform: translate(-50%, -50%);
     animation:
         dream-word-show 35s ease-in 25s 1 forwards,
