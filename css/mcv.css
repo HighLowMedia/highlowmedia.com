@@ -191,6 +191,9 @@ a {
     padding-bottom: 1vh;
     display: none;
 }
+#article-direct-text-body-container {
+    display: block !important;
+}
 
 .article-text-body-container h5 {
     margin: 0;
