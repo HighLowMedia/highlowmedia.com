@@ -1,0 +1,219 @@
+html, body
+{
+    margin:0;
+    padding:0;
+}
+
+body {
+    font-family: helvetica, arial, sans-serif;
+    font-size: 16px;
+    color: #000;
+}
+
+a {
+    text-decoration: underline;
+    color: #666;
+}
+
+.home-body {
+    background-color: hsl(60, 53%, 87%);
+    overflow: hidden;
+}
+
+.home-image-container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    width: 100%;
+    background-image: url('../images/mcv-tile-1920x1080.png'), linear-gradient(to bottom, rgba(20, 149, 218, 0.5), rgba(235, 234, 217, 0.5));
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.2;
+}
+
+.home-header-container {
+    position: absolute;
+    top: 0;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    width: 100%;
+}
+
+.home-header-container h1 {
+    margin: 0;
+    padding: 0;
+    padding-top: 20vh;
+    padding-left: 1vh;
+    font-weight: bold;
+    font-size: 16em;
+    line-height: 1em;
+}
+
+.home-header-container h2 {
+    margin: 0;
+    padding: 10px 0 10px 4vh;
+    font-weight: bold;
+    font-size: 2em;
+    line-height: 1em;
+    width: 100%;
+    background-color: #fff;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+@media (orientation: portrait) {
+    .home-header-container h1 {
+        padding-top: 10vh;
+        padding-left: 1vh;
+        font-weight: bold;
+        font-size: 9em;
+    }
+    .home-header-container h2 {
+        padding: 8px 0 8px 2vh;
+        font-size: 1.1em;
+    }
+}
+
+.article-body {
+    background-color: #fff;
+}
+
+.article-image-container {
+    height: 90px;
+    max-height: 90px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #ccc;
+}
+  
+.article-image-container img {
+    width: 700px; 
+    height: auto;
+    margin-top: -268px;
+    margin-left: -28px;
+    border: 0;
+}
+
+.article-text-header-container {
+    height: 90px;
+    max-height: 90px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #ccc;
+    background-image: url('../images/mcv-tile-1920x1080.png'), linear-gradient(to bottom, rgba(20, 149, 218, 0.5), rgba(235, 234, 217, 0.5));
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.article-text-header-container h1 {
+    margin: 0;
+    padding-left: 1vh;
+    font-size: 6em;
+    line-height: 1em;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.article-text-subheader-container {
+    padding-left: 2vh;
+    padding-right: 2vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.article-text-subheader-container h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+@media (orientation: portrait) {
+    .article-text-subheader-container h2 {
+        font-size: 1em;
+    }
+}
+
+.article-text-volume-container {
+    padding-left: 2vh;
+    padding-right: 2vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+.article-text-volume-container h4 {
+    margin: 0;
+    font-size: 0.8em;
+    font-weight: normal;
+}
+
+.article-text-title-container {
+    padding-left: 2vh;
+    padding-right: 2vh;
+    padding-top: 2vh;
+    padding-bottom: 1vh;
+}
+
+.article-text-title-container h3 {
+    margin: 0;
+    font-size: 1.6em;
+    font-weight: normal;
+}
+
+.article-text-author-container {
+    padding-left: 2vh;
+    padding-right: 2vh;
+    padding-bottom: 1vh;
+}
+
+.article-text-author-container div {
+    font-size: 0.8em;
+}
+
+.article-text-date-container {
+    padding-left: 2vh;
+    padding-right: 2vh;
+    padding-bottom: 1vh;
+}
+
+.article-text-date-container div {
+    font-size: 0.8em;
+}
+
+.article-text-body-container {
+    padding-top: 2vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    padding-bottom: 1vh;
+    display: none;
+}
+
+.article-text-body-container h5 {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+.article-text-body-container div {
+    margin: 0;
+    font-size: 1em;
+    font-weight: 200;
+}
+
+.article-footer-container {
+    width: 100%;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    border-top: 1px solid #000;
+}
+
+.article-footer-container div {
+    margin: 0;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    font-size: 0.8em;
+}
