@@ -36,12 +36,4 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- MCV Article -->
-  <url>
-    <loc>https://highlowmedia.com/mcv/article/ai-neuroplasticity-curiosity-and-emergence-the-way-of-the-child</loc>
-    <lastmod>2025-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
 </urlset>
