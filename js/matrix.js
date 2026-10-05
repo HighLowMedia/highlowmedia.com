@@ -102,7 +102,7 @@ var Matrix = function() {
           return false; // filename is not a string
         }
         const lowerCaseFilename = filename.toLowerCase();
-        return (lowerCaseFilename.endsWith('.png') || lowerCaseFilename.endsWith('.jpg') || lowerCaseFilename.endsWith('.jpeg'));
+        return (lowerCaseFilename.endsWith('.png') || lowerCaseFilename.endsWith('.jpg') || lowerCaseFilename.endsWith('.jpeg') || lowerCaseFilename.includes('.png?') || lowerCaseFilename.includes('.jpg?') || lowerCaseFilename.includes('.jpeg?'));
     }
 
     async function _getRandomWikimediaImage() {
